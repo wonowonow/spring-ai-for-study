@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: spring-ai-demo
+
+  ai:
+    vectorstore:
+      chroma:
+        client:
+          host: http://localhost
+          port: 8000
+        initialize-schema: true
+        collection-name: study
+
+    openai:
+      api-key: ${OPEN_AI_SECRET_KEY}
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/study
+    username: user
+    password: password

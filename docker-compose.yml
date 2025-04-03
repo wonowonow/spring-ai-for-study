@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: study
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  chroma:
+    image: ghcr.io/chroma-core/chroma:0.5.20
+    container_name: chroma_db
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma/
+    environment:
+      - CHROMA_SERVER_HOST=0.0.0.0
+      - CHROMA_SERVER_PORT=8000
+      - CHROMA_PERSIST_DIRECTORY=/chroma/.chroma
+      - CHROMA_ALLOW_RESET=TRUE
+
+volumes:
+  postgres_data:
+  chroma_data:
