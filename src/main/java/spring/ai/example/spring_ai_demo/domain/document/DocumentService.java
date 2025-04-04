@@ -59,6 +59,10 @@ public class DocumentService {
         return new DocumentResponseDto(documentCreateRequestDto.documentContent(), documentType);
     }
 
+    public String getDocumentGuideLine(String documentType, String key) {
+        return documentGuideLineRAGService.classifyDocumentGuideLine(documentType, key);
+    }
+
     public String getDocumentGuideLine(String documentType) {
         return documentGuideLineRAGService.classifyDocumentGuideLine(documentType);
     }
@@ -70,10 +74,6 @@ public class DocumentService {
         log.info("문서 내용에 따른 근사한 문서 타입 결과: {}", closestDocumentType);
 
         return documentGuideLineRAGService.classifyDocumentGuideLine(closestDocumentType);
-    }
-    
-    public String getDocumentGuideLine(String documentType, String key) {
-        return documentGuideLineRAGService.classifyDocumentGuideLine(documentType, key);
     }
 
 

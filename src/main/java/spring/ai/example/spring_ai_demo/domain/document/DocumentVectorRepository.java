@@ -32,9 +32,9 @@ public class DocumentVectorRepository {
 
         if (!results.isEmpty()) {
             for (Document document : results) {
-                Object guideLine = document.getMetadata().get("guideLine");
-                if (guideLine != null) {
-                    return guideLine.toString();
+                Object documentGuideLine = document.getMetadata().get("documentGuideLine");
+                if (documentGuideLine != null) {
+                    return documentGuideLine.toString();
                 }
             }
         }
@@ -69,14 +69,14 @@ public class DocumentVectorRepository {
     }
     
     // 문서 타입 저장
-    public void saveDocumentTypeGuideLine(String documentType, String guideLine) {
+    public void saveDocumentTypeGuideLine(String documentType, String documentGuideLine) {
         Map<String, Object> metadata = Map.of(
             "type", documentType,
-            "guideLine", guideLine
+            "documentGuideLine", documentGuideLine
         );
 
         // forEmbedding
-        String forEmbedding = documentType + ": " + guideLine;
+        String forEmbedding = documentType + ": " + documentGuideLine;
         
         Document document = new Document(UUID.randomUUID().toString(), forEmbedding, metadata);
         chromaVectorStore.add(List.of(document));
