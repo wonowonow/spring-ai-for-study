@@ -14,15 +14,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class DocumentGuideLineRAGService {
 
-    private final DocumentVectorRepository documentVectorRepository;
     private final ChatClient chatClient;
-    private final ChromaVectorStore chromaVectorStore;
-    private final ChatModel chatModel;
 
-    public DocumentGuideLineRAGService(DocumentVectorRepository documentVectorRepository, ChromaVectorStore chromaVectorStore, ChatClient chatClient, ChatModel chatModel) {
-        this.documentVectorRepository = documentVectorRepository;
-        this.chromaVectorStore = chromaVectorStore;
-        this.chatModel = chatModel;
+    public DocumentGuideLineRAGService(ChromaVectorStore chromaVectorStore, ChatModel chatModel) {
         this.chatClient = ChatClient.builder(chatModel)
                                     .defaultAdvisors(
                                             new QuestionAnswerAdvisor(
