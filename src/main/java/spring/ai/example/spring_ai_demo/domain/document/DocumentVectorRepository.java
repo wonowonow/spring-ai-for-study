@@ -69,13 +69,16 @@ public class DocumentVectorRepository {
     }
     
     // 문서 타입 저장
-    public void saveDocumentType(String documentType, String content) {
+    public void saveDocumentTypeGuideLine(String documentType, String guideLine) {
         Map<String, Object> metadata = Map.of(
             "type", documentType,
-            "content", content
+            "guideLine", guideLine
         );
+
+        // forEmbedding
+        String forEmbedding = documentType + ": " + guideLine;
         
-        Document document = new Document(UUID.randomUUID().toString(), content, metadata);
+        Document document = new Document(UUID.randomUUID().toString(), forEmbedding, metadata);
         chromaVectorStore.add(List.of(document));
     }
     
@@ -87,9 +90,10 @@ public class DocumentVectorRepository {
             "guideLine", guideLine
         );
         
-        // 문서 타입과 키를 결합하여 내용으로 사용 (벡터 저장을 위해)
-        String content = documentType + " " + key + ": " + guideLine;
-        Document document = new Document(UUID.randomUUID().toString(), content, metadata);
+        // forEmbedding
+        String forEmbedding = documentType + " " + key + ": " + guideLine;
+
+        Document document = new Document(UUID.randomUUID().toString(), forEmbedding, metadata);
         chromaVectorStore.add(List.of(document));
     }
 }

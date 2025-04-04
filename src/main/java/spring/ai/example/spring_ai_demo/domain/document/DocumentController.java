@@ -1,15 +1,18 @@
 package spring.ai.example.spring_ai_demo.domain.document;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import spring.ai.example.spring_ai_demo.domain.document.dto.DocumentCreateRequestDto;
+import spring.ai.example.spring_ai_demo.domain.document.dto.DocumentGuideLineRequestDto;
 import spring.ai.example.spring_ai_demo.domain.document.dto.DocumentResponseDto;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
 public class DocumentController {
 
@@ -24,12 +27,28 @@ public class DocumentController {
         return ResponseEntity.status(200).body(documentService.createDocument(requestDto));
     }
 
-    @PostMapping("/test")
-    public ResponseEntity<String> getDocumentGuideLine(
+    @PostMapping("/documentGuides/contents")
+    public ResponseEntity<String> getDocumentGuideLineByContent(
             @RequestBody
             String request
     ) {
 
-        return ResponseEntity.status(200).body(documentService.getDocumentGuideLine(request));
+        return ResponseEntity.status(200).body(documentService.getDocumentGuideLineByContent(request));
+    }
+
+    @PostMapping("/documentGuides")
+    public ResponseEntity<String> getDocumentGuideLine(
+            @RequestBody
+            DocumentGuideLineRequestDto requestDto
+    ) {
+
+        log.info("getDocumentGuideLine");
+        if (requestDto.key() != null && !requestDto.key().trim().isEmpty()) {
+            log.info("search with {} {}", requestDto.documentType(), requestDto.key());
+            return ResponseEntity.status(200).body(documentService.getDocumentGuideLine(requestDto.documentType(), requestDto.key()));
+        }
+
+        log.info("search with {}", requestDto.documentType());
+        return ResponseEntity.status(200).body(documentService.getDocumentGuideLine(requestDto.documentType()));
     }
 }

@@ -2,6 +2,7 @@ package spring.ai.example.spring_ai_demo.domain.document;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import spring.ai.example.spring_ai_demo.domain.document.dto.DocumentKeyGuide;
 import spring.ai.example.spring_ai_demo.domain.document.dto.DocumentResponseDto;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class DocumentService {
 
@@ -36,7 +38,7 @@ public class DocumentService {
             documentGuideLine = result.documentGuideLine();
             
             // 문서 타입 벡터 저장
-            documentVectorRepository.saveDocumentType(documentType, documentGuideLine);
+            documentVectorRepository.saveDocumentTypeGuideLine(documentType, documentGuideLine);
             
             // 키와 가이드라인 벡터 저장
             if (!result.keys().isEmpty()) {
@@ -60,8 +62,19 @@ public class DocumentService {
     public String getDocumentGuideLine(String documentType) {
         return documentGuideLineRAGService.classifyDocumentGuideLine(documentType);
     }
+
+    public String getDocumentGuideLineByContent(String documentContent) {
+
+        log.info("문서 내용에 따른 문서 타입 근사값 서칭");
+        String closestDocumentType = documentVectorRepository.findClosestDocumentType(documentContent);
+        log.info("문서 내용에 따른 근사한 문서 타입 결과: {}", closestDocumentType);
+
+        return documentGuideLineRAGService.classifyDocumentGuideLine(closestDocumentType);
+    }
     
     public String getDocumentGuideLine(String documentType, String key) {
         return documentGuideLineRAGService.classifyDocumentGuideLine(documentType, key);
     }
+
+
 }
