@@ -9,7 +9,9 @@ spring:
           host: http://localhost
           port: 8000
         initialize-schema: true
-        collection-name: study
+      document-collection-names:
+        document-type-guide: "document_type_guide"
+        document-type-key-guide: "documen_type_key_guide"
 
     openai:
       api-key: ${OPEN_AI_SECRET_KEY}

@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DocumentTypeRAGService {
 
-    private final DocumentVectorRepository documentVectorRepository;
+    private final DocumentGuideVectorRepository documentGuideVectorRepository;
 
     public String classifyDocumentType(String documentContent) {
 
-        return documentVectorRepository.findClosestDocumentType(documentContent);
+        return documentGuideVectorRepository.findClosestDocumentType(documentContent);
     }
 }

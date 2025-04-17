@@ -5,6 +5,7 @@ import java.util.List;
 public record DocumentAnalysisResponseDto(
         String documentType,
         String documentGuideLine,
+        String documentDescription,
         List<DocumentKeyGuide> keys
 ) {
 }
