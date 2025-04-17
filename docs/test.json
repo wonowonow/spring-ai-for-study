@@ -1,0 +1,694 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "a69a1565-e990-4926-8ec2-71ff89ac64c6",
+        "name": "Spring AI RAG Demo"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"documentContent\": \"보고서\",\n  \"key\": \"분석 결과\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documentGuides"
+            },
+            "id": "c7e36e00-986e-46eb-88b6-d8c549fe9c13",
+            "name": "[가이드 라인 검색] Content: 보고서 Key: 분석 결과",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"documentContent\": \"이 문서는 서비스 인수인계에 대한 문서입니다. 주요 내용은 DB 스키마 변경과 API 엔드포인트 업데이트입니다.\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documentGuides"
+            },
+            "id": "7a56e1f7-1c37-49eb-a618-4241de09edc8",
+            "name": "[가이드 라인 검색] Content: 서비스 인수인계 문서",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"documentContent\": \"이력서\",\n  \"key\": \"경력\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documentGuides"
+            },
+            "id": "306a5fc6-5901-4d06-9499-bc8ddc9c141b",
+            "name": "[가이드 라인 검색] Content: 이력서 Key: 경력",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n    \"documentContent\": \"문서 제목: 쿠폰 발급 및 사용 API 설계\\n\\n개요:\\n- 이 문서는 쿠폰을 발급하고 사용하는 API의 상세 스펙을 정의한다.\\n\\nAPI 명세\\n1. 쿠폰 발급 API\\n   - URL: POST /api/v1/coupons\\n   - 요청 바디:\\n     {\\n       \\\"userId\\\": \\\"UUID\\\",\\n       \\\"couponType\\\": \\\"DISCOUNT\\\",\\n       \\\"discountAmount\\\": 5000\\n     }\\n   - 응답 예시:\\n     {\\n       \\\"couponId\\\": \\\"UUID\\\",\\n       \\\"status\\\": \\\"ACTIVE\\\"\\n     }\\n\\n2. 쿠폰 사용 API\\n   - URL: POST /api/v1/coupons/redeem\\n   - 요청 바디:\\n     {\\n       \\\"userId\\\": \\\"UUID\\\",\\n       \\\"couponId\\\": \\\"UUID\\\"\\n     }\\n   - 응답 예시:\\n     {\\n       \\\"status\\\": \\\"REDEEMED\\\",\\n       \\\"discountApplied\\\": 5000\\n     }\\n\\n보안 요구사항\\n- 모든 요청은 JWT 인증을 요구함\\n- 사용자의 쿠폰은 본인만 조회 및 사용할 수 있어야 함\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "8b5878cd-8734-40b0-9883-b901f2d76251",
+            "name": "[문서 생성 및 분석] API 설계서",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n    \"documentContent\": \"보고서\\n제목: 1분기 매출 분석 보고서\\n작성자: 최수현\\n작성일: 2025년 4월 2일\\n분석 결과:\\n- 전년 동기 대비 매출 15% 상승\\n- 주요 성장 요인: 신제품 출시 및 온라인 마케팅 강화\\n개선 방안:\\n- 오프라인 매장 프로모션 강화\\n- 고객 데이터 분석 기반 타겟 마케팅 실행\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "6072b350-4631-4626-8941-de6f2d45bdd6",
+            "name": "[문서 생성 및 분석] 보고서",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n    \"documentContent\": \"프로젝트명: 스마트 헬스 트래커 (Smart Health Tracker)\\n설명: 사용자의 운동 및 식단을 관리할 수 있는 웹/모바일 애플리케이션\\n\\n기능 요구사항\\n1. 사용자 인증\\n   - 회원가입, 로그인, 비밀번호 재설정\\n   - OAuth 로그인 지원 (Google, Apple)\\n\\n2. 운동 기록 관리\\n   - 사용자가 운동 기록 추가 및 수정 가능\\n   - 운동별 칼로리 소모량 계산\\n\\n3. 식단 관리\\n   - 사용자가 하루 식단 기록 추가 및 수정 가능\\n   - 칼로리 및 영양소 분석 제공\\n\\n비기능 요구사항\\n- 서비스 가용성: 99.9% 이상 유지\\n- API 응답 시간: 300ms 이하\\n- 데이터 암호화 및 보안 준수\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "93284fc7-51cb-4fb2-9b30-755c1200304d",
+            "name": "[문서 생성 및 분석] 요구사항 명세서",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"documentContent\": \"이름: 홍길동\\n연락처: 010-1234-5678\\n나이: 27\\n이메일: honggildong@example.com\\n주소: 서울특별시 강남구 테헤란로 123\\n\\n경력\\n- ABC 회사 (2022.01 - 현재)\\n  - 백엔드 개발자로 근무\\n  - Spring Boot 기반의 API 개발 및 유지보수\\n  - 데이터베이스 최적화 및 성능 개선\\n\\n- XYZ 스타트업 (2020.06 - 2021.12)\\n  - 웹 서비스 개발 및 운영\\n  - RESTful API 설계 및 구현\\n\\n학력\\n- 서울대학교 컴퓨터공학과 (2016.03 - 2020.02)\\n\\n기술 스택\\n- 프로그래밍 언어: Java, TypeScript, Python\\n- 프레임워크: Spring Boot, Next.js, React\\n- 데이터베이스: PostgreSQL, Redis\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "008cdb9e-9c81-4800-acb2-c16e4075cdfa",
+            "name": "[문서 생성 및 분석] 이력서",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"documentContent\": \"제목: 주문 DB 운영 인수인계 문서\\n작성자: 최정우\\n작성일: 2025년 4월 5일\\n\\n[DB 정보]\\n- DBMS: PostgreSQL 14\\n- DB 주소: db.oms.company.com:5432\\n- 계정: oms_admin (비밀번호는 관리자에게 요청)\\n\\n[주요 테이블]\\n1. orders\\n   - 주문 기본 정보 저장\\n   - 상태 값: CREATED, SHIPPED, CANCELLED\\n2. order_items\\n   - 주문에 포함된 상품 목록\\n3. delivery\\n   - 배송 상태 및 송장 번호 관리\\n\\n[백업 정책]\\n- 매일 새벽 3시 S3로 자동 백업\\n- 보존 기간: 30일\\n\\n[담당자]\\n- DB 관리자: 최정우 (slack: @dbmaster)\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "c65d65fe-1e02-48a2-86d9-73858f5be9ca",
+            "name": "[문서 생성 및 분석] 인수인계서 (DB 운영)",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"documentContent\": \"제목: 결제 시스템 개발 인수인계 문서\\n작성자: 박성민\\n작성일: 2025년 2월 15일\\n\\n[시스템 개요]\\n- PG 연동을 통한 카드/계좌 이체 결제 처리\\n\\n[기술 스택]\\n- 언어: Kotlin\\n- 프레임워크: Spring Boot 3\\n- DB: MySQL 8\\n- 비동기 처리: Kafka + Retry Queue\\n\\n[핵심 기능]\\n- 결제 승인/취소 API\\n- 정산 데이터 추출 배치\\n- 결제 오류 로그 추적 기능\\n\\n[중요 경로]\\n- 주요 설정: `application-payment.yml`\\n- 로그 확인: ELK 대시보드 (URL: http://elk.company.com/payment)\\n\\n[참고 문서]\\n- Notion 링크: https://notion.so/payment-docs\\n\\n[담당자]\\n- 백엔드 담당: 박성민 (slack: @seongmin)\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "be0ff108-01e9-4dd3-9e9b-b8997929b9cd",
+            "name": "[문서 생성 및 분석] 인수인계서 (개발)",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"documentContent\": \"제목: 봄맞이 마케팅 캠페인 인수인계서\\n작성자: 김보라\\n작성일: 2025년 3월 10일\\n\\n[캠페인 개요]\\n- 이름: 2025 봄맞이 할인 프로모션\\n- 기간: 2025.03.15 ~ 2025.04.15\\n- 목표: 전년 동기 대비 매출 20% 증가\\n\\n[채널별 일정]\\n- 인스타그램 광고: 3월 15일 시작, 주 2회 포스팅\\n- 이메일 발송: 매주 월요일, 총 5회\\n- 홈페이지 배너 교체: 3월 14일 자정\\n\\n[주의사항]\\n- 쿠폰 코드는 매주 월요일 새로 발급 필요\\n- 할인 적용 제외 품목 있음 (별첨 참조)\\n\\n[담당자 인계]\\n- 기획: 김보라 → 박지민 (010-3333-4444)\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "e493c756-20f9-44e8-a39c-fcfca5f18e95",
+            "name": "[문서 생성 및 분석] 인수인계서 (마케팅 캠페인)",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"documentContent\": \"제목: 사용자 인증 서비스 인수인계서\\n작성자: 이지은\\n작성일: 2025년 3월 30일\\n\\n■ 서비스 설명\\n- OAuth2 기반 사용자 인증 및 토큰 관리\\n\\n■ 기술 스택\\n- 백엔드: Spring Security, Redis\\n- 인증서버: Keycloak\\n\\n■ 운영 규칙\\n- 토큰 만료 시간: 30분\\n- 사용자 차단 시 Redis에 블랙리스트 등록\\n\\n■ 장애 대응\\n- 로그인 불가 문의: #auth-support 슬랙 채널\\n- 장애 로그 위치: /var/log/auth-service/\\n\\n■ 담당자 연락처\\n- 운영 담당자: 이지은 (010-1111-2222)\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "2a5e9d16-4dcd-4764-be2e-bf6980b127ef",
+            "name": "[문서 생성 및 분석] 인수인계서 (서비스 운영)",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"documentContent\": \"제목: 고객센터 운영 인수인계서\\n작성자: 정다은\\n작성일: 2025년 4월 1일\\n\\n1. 고객 응대 시간\\n   - 평일 09:00~18:00\\n   - 점심시간 12:00~13:00\\n\\n2. 사용 툴\\n   - Zendesk: 티켓 관리\\n   - Slack: 내부 문의 (#cs-inquiry)\\n   - Excel: 일일 응대 보고서 작성\\n\\n3. 자주 묻는 질문 대응\\n   - 배송 지연: 송장번호 확인 후 3일 이상 지연 시 보상\\n   - 환불 처리: 고객 요청 후 영업일 기준 3일 이내 처리\\n\\n4. 업무 인수 내용\\n   - 잔여 티켓 5건, 모두 1일 이내 처리 필요\\n\\n5. 인수자 연락처\\n   - 후임자: 김나현 (010-7777-8888)\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "8e66cfbb-2a2c-4f03-826d-e4134547e5f3",
+            "name": "[문서 생성 및 분석] 인수인계서 (운영 매뉴얼)",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n    \"documentContent\": \"제목: 주문 관리 시스템 인수인계 문서\\n작성자: 홍길동\\n작성일: 2025년 4월 4일\\n\\n1. 프로젝트 개요\\n   - 주문 관리 시스템(OMS)은 고객 주문을 관리하고 배송 상태를 추적하는 서비스임.\\n\\n2. 시스템 아키텍처\\n   - 프론트엔드: React, Next.js\\n   - 백엔드: Spring Boot, PostgreSQL\\n   - 캐싱: Redis 사용\\n   - 메시징 시스템: Kafka\\n\\n3. 주요 기능\\n   - 주문 생성, 수정, 취소 기능\\n   - 배송 상태 추적\\n   - 관리자 대시보드 제공\\n\\n4. 운영 및 유지보수\\n   - 신규 기능 추가 시 GitHub PR 리뷰 필수\\n   - 장애 발생 시 슬랙 #oms-alert 채널로 보고\\n   - 매일 오전 10시 정기 점검 시행\\n\\n5. 주요 연락처\\n   - 백엔드 담당자: 홍길동 (010-1234-5678)\\n   - 프론트엔드 담당자: 김철수 (010-9876-5432)\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "1ab72acd-10a8-49f4-a88a-bcbe65d0212a",
+            "name": "[문서 생성 및 분석] 인수인계서 (주문 관리)",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n    \"documentContent\": \"제목: 헬스케어 앱 개발 제안서\\n\\n작성일: 2025년 4월 4일\\n작성자: 홍길동 (honggildong@example.com)\\n\\n1. 개요\\n   - 본 제안서는 헬스케어 시장을 타겟으로 한 맞춤형 운동 및 식단 관리 앱 개발을 목표로 한다.\\n\\n2. 프로젝트 목표\\n   - 개인 맞춤형 운동 및 식단 추천 기능 제공\\n   - 사용자의 건강 데이터를 AI 기반으로 분석하여 인사이트 제공\\n\\n3. 주요 기능\\n   - 실시간 운동 코칭 기능\\n   - AI 기반 식단 분석 및 추천\\n   - 다양한 스마트워치 연동 지원\\n\\n4. 개발 일정\\n   | 단계 | 일정 |\\n   |------|------|\\n   | 기획 및 설계 | 2025년 4월 - 5월 |\\n   | 개발 | 2025년 6월 - 9월 |\\n   | 테스트 및 출시 | 2025년 10월 - 11월 |\\n\\n5. 기대 효과\\n   - 헬스케어 시장에서의 차별화된 서비스 제공\\n   - 사용자 건강 증진 및 데이터 기반 맞춤 서비스 제공\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "57548680-8907-4ed5-a17d-d85005514623",
+            "name": "[문서 생성 및 분석] 제안서",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n    \"documentContent\": \"회의록\\n일시: 2025년 4월 5일\\n참석자: 김민수, 박지영, 이현우\\n주제: 2분기 마케팅 전략 논의\\n논의 내용:\\n- 신규 SNS 채널 활용 방안\\n- 인플루언서 협업 계획\\n결정 사항:\\n- 인스타그램 스토리 광고 예산 증액\\n- 뷰티 유튜버 3명과 협업 진행\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documents"
+            },
+            "id": "011cf267-88e0-43fb-8185-55b502a7873b",
+            "name": "[문서 생성 및 분석] 회의록",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "프로젝트명: 스마트 헬스 트래커 (Smart Health Tracker)\\n설명: 사용자의 운동 및 식단을 관리할 수 있는 웹/모바일 애플리케이션\\n\\n기능 요구사항\\n1. 사용자 인증\\n   - 회원가입, 로그인, 비밀번호 재설정"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documentGuides/contents"
+            },
+            "id": "5b9154ab-8d1e-44ad-8269-53e6c72bedf2",
+            "name": "[콘텐츠 기반 가이드 라인 검색] 요구사항 명세서",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "text/plain"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "회의록\\n일시: 2025년 4월 5일\\n참석자: 김민수, 박지영, 이현우\\n주제: 2분기 마케팅 전략 논의"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/documentGuides/contents"
+            },
+            "id": "d28929a1-d042-46c9-98e0-aee9eda15cf4",
+            "name": "[콘텐츠 기반 가이드 라인 검색] 회의록",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "text/plain"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

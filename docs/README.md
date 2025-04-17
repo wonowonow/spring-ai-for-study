@@ -54,6 +54,11 @@ docker-compose up -d
 ./gradlew bootRun
 ```
 
+### 4. Talend-API-Tester(Chrome Extension) 를 이용한 API 테스트
+1. test.json Talend API Tester 에 Import
+2. [문서 생성 및 분석] API 전부 Request
+3. 검색 테스트
+
 ## 프로젝트 구조
 
 ```
