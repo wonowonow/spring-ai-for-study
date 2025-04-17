@@ -24,19 +24,22 @@ public class DocumentGuideLineRAGService {
                                     .defaultAdvisors(
                                             new QuestionAnswerAdvisor(
                                                     chromaVectorStore, SearchRequest.builder()
-                                                                                    .similarityThreshold(0.8d)
-                                                                                    .topK(6).build()))
+                                                                                    .similarityThreshold(0.85d)
+                                                                                    .topK(3).build()))
                                     .build();
         this.vectorStore = chromaVectorStore;
     }
 
     public String classifyDocumentGuideLine(String documentType) {
 
-        log.info("documentType 에 따른 GuideLine RAG 검색");
+        log.info("documentContent 에 따른 GuideLine RAG 검색");
 
         log.info("similar: {}", vectorStore.similaritySearch(SearchRequest.builder().query(documentType).similarityThreshold(0.8d).topK(6).build()));
 
-        String content = chatClient.prompt(new Prompt("documentType 에 따른 DocumentGuideLine 을 작성해주세요")).user(documentType).call().content();
+        String content = chatClient.prompt(new Prompt("documentType 에 따른 간결한 DocumentGuideLine을 3-4문장 이내로 작성해주세요"))
+                .user(documentType)
+                .call()
+                .content();
         log.info("content: {}", content);
 
         return content;
