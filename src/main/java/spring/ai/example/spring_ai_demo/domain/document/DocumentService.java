@@ -20,6 +20,7 @@ public class DocumentService {
     private final DocumentGuideLineRAGService documentGuideLineRAGService;
     private final DocumentGuideVectorRepository documentGuideVectorRepository;
     private final DocumentKeyGuideVectorRepository documentKeyGuideVectorRepository;
+    private final DocumentKeyGuideLineRAGService documentKeyGuideLineRAGService;
     private final ChatClient chatClient;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -75,7 +76,7 @@ public class DocumentService {
     }
 
     public String getDocumentGuideLine(String documentContent, String key) {
-        return documentGuideLineRAGService.classifyDocumentGuideLine(documentContent, key);
+        return documentKeyGuideLineRAGService.classifyDocumentGuideLine(documentContent, key);
     }
 
     public String getDocumentGuideLine(String documentType) {
