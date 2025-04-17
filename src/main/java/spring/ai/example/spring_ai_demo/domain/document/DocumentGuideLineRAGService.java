@@ -30,14 +30,14 @@ public class DocumentGuideLineRAGService {
         this.vectorStore = chromaVectorStore;
     }
 
-    public String classifyDocumentGuideLine(String documentType) {
+    public String classifyDocumentGuideLine(String documentContent) {
 
         log.info("documentContent 에 따른 GuideLine RAG 검색");
 
-        log.info("similar: {}", vectorStore.similaritySearch(SearchRequest.builder().query(documentType).similarityThreshold(0.8d).topK(6).build()));
+        log.info("similar: {}", vectorStore.similaritySearch(SearchRequest.builder().query(documentContent).similarityThreshold(0.8d).topK(6).build()));
 
-        String content = chatClient.prompt(new Prompt("documentType 에 따른 간결한 DocumentGuideLine을 3-4문장 이내로 작성해주세요"))
-                .user(documentType)
+        String content = chatClient.prompt(new Prompt("documentContent 에 따른 간결한 DocumentGuideLine을 3-4문장 이내로 작성해주세요"))
+                .user(documentContent)
                 .call()
                 .content();
         log.info("content: {}", content);
@@ -45,10 +45,10 @@ public class DocumentGuideLineRAGService {
         return content;
     }
 
-    public String classifyDocumentGuideLine(String documentType, String key) {
+    public String classifyDocumentGuideLine(String documentContent, String key) {
 
-        log.info("documentType 과 Key 에 따른 GuideLine RAG 검색");
-        String content = chatClient.prompt(new Prompt("documentType 과 Key 에 따라 Key 의 guideLine 을 작성해주세요")).user(documentType + ", " + key).call().content();
+        log.info("documentContent 과 Key 에 따른 GuideLine RAG 검색");
+        String content = chatClient.prompt(new Prompt("documentContent 과 Key 에 따라 간결한 guideLine 3-4문장 이내로 작성해주세요")).user(documentContent + ", " + key).call().content();
         log.info("content: {}", content);
 
         return content;
